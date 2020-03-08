@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="C:\xampp\htdocs\w3-1.css">
+<link rel="stylesheet" href="C:\xampp\htdocs\home.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+/* /* * {
+  box-sizing: border-box;
+} */
+
+
+
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+  
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+  background-color: black;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  border: solid 3px cyan;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color:black;
+  color:white;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color:black;
+  color: white;
+  border-bottom:solid 3px cyan;
+  margin-left:10px;
+  margin-right:10px;
+  text-align: center;
+}
+
+.modal-body {padding: 2px 16px;color:white;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+</style>
+</head>     
+<body bgcolor="black" style="color: white;">
+<div id="navbar">
+    <div class="logo">
+       <a href="hi.html">DemoQuestion</a>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="padding-top:9px;border:none;width: 360px;height:30px;"><form autocomplete="off"><div class="autocomplete"><input id="myInput" type="text" style="width:300px;height:30px;" placeholder="          Search User " name="myCountry" required></div><input type="submit" value="" href="newpost.html"style="height:31px;width:36px;background-color:black;color:white;position: absolute;margin-top:0px;padding-top:0px;top:16px;margin-left:160px;border:none;border-radius:10px;border-top-left-radius:0%;border-bottom-left-radius:0%;border-left:none;" onclick="window.location.href='newpost.html'"><i class="fa fa-search"onclick="window.location.href='newpost.html'"></i></form>
+</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <a style="border:none;font-size:17px;padding-top:9px;top:0%;"> <div class="custom-select" style="width:160px;float:right;margin-top:0px;">
+        <select>
+          <option value="0">Constituency</option>
+          <option value="1">Constituency1</option>
+          <option value="2">Constituency2</option>
+          <option value="3">Constituency3</option>
+          <option value="4">Constituency4</option>
+          <option value="5">Constituency5</option>
+          <option value="6">Constituency6</option>
+          <option value="7">Constituency7</option>
+          <option value="8">Constituency8</option>
+          <option value="9">Constituency9</option>
+          <option value="10">Constituency10</option>
+        </select>
+        
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </a>
+   
+    <a id="hi" href="javascript:void(0)">Posts</a>
+    <a id="hi" href="javascript:void(0)">Gov Plans</a>
+        </div>
+        <!-- <div class="search">
+        <input type="text" name="search_text" id="search_text" id="tu" placeholder="Search"  class="form-control" />
+    </div> -->
+    <div class="topnav-right">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a id="hi" style="position:absolute;border:none;margin-left:60px;left:80%;margin-right:300px;padding-top:9px;top:0%;right:0px;font-size:17px;">
+      <div class="custom-select"style="width:100px;float:right;margin-top:0px;">
+        <select >
+          <option value="0" style="float:right;">Profile</option>
+          <option value="1">5 replies</option>
+          <option value="2">35 PS requests</option>
+          <option value="3">View Profile</option>
+          <option value="4">Settings</option>
+          <option value="5">Logout</option>
+          
+        </select>
+        
+      </div>
+    </a>
+       
+          
+    <!-- <a id="hi" class="notif" href="javascript:void(0)">Profile &nbsp;&nbsp;<sup><span class="num">2</span></sup></a> -->
+   
+    <!-- <a id="hi" href="javascript:void(0)">Log Out</a> -->
+    
+</div> 
+  </div>
+  <br>
+  <br>
+  <br>
+
+<!--Make sure the form has the autocomplete function switched off:-->
+<!-- <form autocomplete="off" action="/action_page.php">
+  <div class="autocomplete" style="width:300px;">
+    <input id="myInput" type="text" name="myCountry" placeholder="Country">
+  </div>
+  <input type="submit">
+</form> -->
+<div style="width: 100%;height:30px;border:solid 1px cyan;overflow:visible;background-color: black;">
+    <span><i class="rightos" onclick="myFunction()"></i></span>
+    <br>
+  </div>
+    <div id="filter"style="width: 100%;height:270px;border:solid 1px cyan;overflow:visible;display:none;">
+    <div class="custom-select" style="width:200px;">
+      <select>
+        <option value="0">City:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+        <option value="3">Citroen</option>
+        <option value="4">Ford</option>
+        <option value="5">Honda</option>
+        <option value="6">Jaguar</option>
+        <option value="7">Land Rover</option>
+        <option value="8">Mercedes</option>
+        <option value="9">Mini</option>
+        <option value="10">Nissan</option>
+        <option value="11">Toyota</option>
+        <option value="12">Volvo</option>
+      </select>
+    </div>
+    <br>
+    <br>
+    <br>
+    <label class="container">Match search with Post Title
+      <input type="checkbox" id="matchPostTitle"checked="checked" >
+      <span class="checkmark"></span>
+    </label>
+    <br>
+    <label class="container">Match search with Post Hashtag
+      <input type="checkbox" id="matchHashtag">
+      <span class="checkmark"></span>
+    </label>
+    <br>
+    <label class="container">Show only endorsed posts
+      <input type="checkbox" id="endorseCheck" onclick="filterPosts2()">
+      <span class="checkmark"></span>
+    </label>
+    <br>
+    <label class="container">Show Only Unsolved Posts
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    
+  </div>
+  <!-- <br> -->
+    
+    <!-- <br> -->
+    <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Scrollable Menu <span class="caret"></span></button>
+    <ul class="dropdown-menu scrollable-menu" role="menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+    </ul> -->
+    <!-- <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+      <div id="myDropdown" class="dropdown-content">
+        <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+        <a href="#about">About</a>
+        <a href="#base">Base</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <a href="#custom">Custom</a>
+        <a href="#support">Support</a>
+        <a href="#tools">Tools</a>
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="calendar">
+    <button id="mainb" >View Current Schedule</button>
+    <button id="mainb">Fill Feedback Form</button>
+    <button id="mainb">View History</button>
+    <button id="mainb" class="active">Create New Appointment</button> -->
+    <!-- <button>Friday</button> -->
+    <!-- </div> -->
+    <!-- <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br> -->
+
+  <div style="width:300px;border:solid 1px cyan;background-color:darkgray;position:relative">
+  <input type="text" style="width:190px;height:30px;" placeholder="   Search bar " name="uname" id="postFilter" onkeyup="filterPosts()" required>
+  <button id="pt" type="submit"><span style="text-align: center;">new post</span>
+  </button>
+</div>
+
+<div class="w3-sidebar w3-bar-block  w3-card" id="postHolder" style="width:300px;background-color:black;height:73%;position:fixed;overflow-y:scroll;">
+    
+  <button class="w3-bar-item w3-button tablink " id="hey" onclick="openCity(event, 'Paris3')"><input type="hidden" value="Paris3"><h5><b>Power Cut ...</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:10px;">2/12/2020</span></h5>
+  <h6>It has been 5 days since our street electricity transformer failed due to...</h6>
+  </button>
+<button class="w3-bar-item w3-button tablink" id="hey" onclick="openCity(event, 'Paris4')"><input type="hidden" value="Paris4">
+    <h5><b>Why buses are...</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:10px;float:right;">2/12/2020</span></h5>
+    <h6>Homework 3 is now released, it can be found in the resources...</h6>
+  </button>
+  <button class="w3-bar-item w3-button tablink"  id="hey" onclick="openCity(event, 'Paris3')"><input type="hidden" value="Paris3">
+    <h5><b>Late night Dr....</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:10px;">2/12/2020</span></h5>
+    <h6>Homework 3 is now released, it can be found in the resources...</h6>
+  </button>
+   <button class="w3-bar-item w3-button tablink " id="hey" onclick="openCity(event, 'Paris4')"><input type="hidden" value="Paris4">
+    <h5><b>Corona Virus pre...</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:10px;">2/12/2020</span></h5>
+    <h6>It has been 5 days since our street electricity transformer failed due to...</h6>
+    </button>
+    <button class="w3-bar-item w3-button tablink" id="hey" onclick="openCity(event, 'Paris3')"><input type="hidden" value="Paris3">
+      <h5><b>Hygiene at stake</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:10px;">2/12/2020</span></h5>
+      <h6>Homework 3 is now released, it can be found in the resources...</h6>
+    </button>
+    <button class="w3-bar-item w3-button tablink"  id="hey" onclick="openCity(event, 'Paris4')"><input type="hidden" value="Paris4">
+      <h5><b>Low Quality Car Brakes...</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:10px;">2/12/2020</span></h5>
+      <h6>Homework 3 is now released, it can be found in the resources...</h6>
+    </button>
+
+</div>
+
+<div style="margin-left:300px;position: relative;">
+  <!-- <div class="w3-padding">Vertical Tab Example (sidebar)</div> -->
+  <div id="homeDisplay" class="w3-container city"style="height:80%;margin-left:10px;border:solid 1px cyan; border-radius:10px;display:block;">
+    <p style="text-align: center;">Top 10 Trending Problems in your locality</p>
+    <p>
+      <ol>
+        <li><a id="hashtag" href="#">#SaveAmazonForest</a>
+          <ul>
+            <li>
+              A Social Movement
+              
+              
+              
+
+            </li>
+            <li>
+              146 Total Posts
+            </li>
+            <li>
+              60% Trust The Government
+            </li>
+            <li>
+              40% lost hope
+            </li>
+          </ul>
+        </li>
+        <li>#LateBuses</li>
+        <li>#StreetLights</li>
+        <li>#IrresponsiblePassengers</li>
+        <li>#ElectricityLacks</li>
+        <li>#HomelessNess</li>
+        <li>#RespectedDrinkersAttrocities</li>
+        <li>#HangRapists</li>
+        <li>#Lalaland</li>
+        <li>#Thanos</li>
+      </ol> 
+    </p>
+  </div>
+  
+ 
+
+  <div id="Paris" class="w3-container city" style="display:none;height:73%;position:fixed;overflow-y:scroll;">
+    <div class="title-holder" style="position:relative;">
+      
+      <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+        <h4>post@PostId <span style="float:right;">number of views</span></h4> 
+        </div>
+      
+    <h2 style="margin-left: 6px;">Trivial Question About PDA</h2>
+    <p></p>
+    <div class="title-content-holder">
+        <p style="margin-left: 6px;">Do PDAs stop after reaching the final state or can they die in a situation where they have reached the final state (and there are no transitions out of it) and input is still remaining?</p>  
+         <label>Hashtag Used:</label>#<span class="tagUsed">SaveAmazonForest</span>
+    </div>
+    <div class="bstamp" style="
+     position:absolute;
+    background:black;
+    color:white;
+    border-top:solid 2px cyan;
+    width:100%;
+    height:30px;
+    bottom:0;">
+    <div class="PostResponse" style="float:left;">
+      &nbsp;&nbsp;&nbsp;<span class="likeNum">3</span>&nbsp;<button class="clickme" style="background-color:black;color:white;border:none;text-decoration:underline cyan;cursor:pointer;">Likes</button>&nbsp;&nbsp;&nbsp;
+      <span class="endorseNum">1 </span>endorsements
+    </div>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <button id="myBtn" style="background-color: black;color:white;text-decoration: underline cyan;border-radius:10px;cursor:pointer;">Flag Status</button>
+    <div id="PostOwner"style="float:right;">Updated [number] days ago by User1</div>
+    
+    </div>
+    <br>
+   </div>
+   <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from public <span style="font-size: 10px;">Comment from a common man/woman</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>I think I found the answer in the book that PDAs have a condition that "an accept state occurs at the input end."
+
+ 
+
+      So I think that the stack does not need to be empty if the PDA is in the final state and has reached the end of the input.</h6>
+    <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+
+    <!-- </button> -->
+  </div>
+  </div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from the authority <span style="font-size: 10px;">Answer from the person who you demanded explanation.</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>PDAs can accept once they've reached the end of the input, but not before.</h6>
+    <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+      
+  </div>
+  <!-- </button> -->
+</div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>followup discussions <span style="font-size: 10px;">lingering questions and comments</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h4><b>Start a new discussion</b></h4>
+    <p></p>
+    <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>
+    <br><br>
+    <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br>
+     </button>
+    <br>
+    <br>
+  </div>
+  </div>
+  
+  </div>
+  <div id="Paris2" class="w3-container city" style="display:none;height:73%;position:fixed;overflow-y:scroll;">
+    <div class="title-holder" style="position:relative;">
+      
+      <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+        <h4>post@PostId <span style="float:right;">number of views</span></h4> 
+        </div>
+      
+    <h2 style="margin-left: 6px;">Amazon Burns</h2>
+    <p></p>
+    <div class="title-content-holder">
+    <p style="margin-left: 6px;">Amazon needs to be saved. Government needs to take action regarding this.</p>  
+     <label>Hashtag Used:</label>#<span class="tagUsed">SaveAmazonForest</span>
+</div>
+    <div class="bstamp" style="
+     position:absolute;
+    background:black;
+    color:white;
+    border-top:solid 2px cyan;
+    width:100%;
+    height:30px;
+    bottom:0;">
+    <div class="PostResponse" style="float:left;">
+      &nbsp;&nbsp;&nbsp;<span class="likeNum">1</span>&nbsp;<button class="clickme" style="background-color:black;color:white;border:none;text-decoration:underline cyan;cursor:pointer;">Likes</button>&nbsp;&nbsp;&nbsp;
+      <span class="endorseNum">0</span> endorsements
+    </div>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <button id="myBtn" style="background-color: black;color:white;text-decoration: underline cyan;border-radius:10px;cursor:pointer;">Flag Status</button>
+    <div id="PostOwner"style="float:right;">Updated [number] days ago by User1</div>
+    
+    </div>
+    <br>
+   </div>
+   <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from public <span style="font-size: 10px;">Comment from a common man/woman</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>I think I found the answer in the book that PDAs have a condition that "an accept state occurs at the input end."
+
+ 
+
+      So I think that the stack does not need to be empty if the PDA is in the final state and has reached the end of the input.</h6>
+    <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+
+    <!-- </button> -->
+  </div>
+  </div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from the authority <span style="font-size: 10px;">Answer from the person who you demanded explanation.</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>PDAs can accept once they've reached the end of the input, but not before.</h6>
+    <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+      
+  </div>
+  <!-- </button> -->
+</div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>followup discussions <span style="font-size: 10px;">lingering questions and comments</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h4><b>Start a new discussion</b></h4>
+    <p></p>
+    <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>
+    <br><br>
+    <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br>
+     </button>
+    <br>
+    <br>
+  </div>
+  </div>
+  
+  </div>
+
+  <div id="Paris3" class="w3-container city" style="display:none;height:73%;position:fixed;overflow-y:scroll;">
+    <div class="title-holder" style="position:relative;">
+      
+      <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+        <h4>post@BruWay 531 <span style="float:right;">53 views</span></h4> 
+        </div>
+      
+    <h2 style="margin-left: 6px;">Power cut Strikes Again</h2>
+    <p></p>
+    <div class="title-content-holder">
+    <p style="margin-left: 6px;">We are living in XYZ street. I thought we are away from these kind of problems. Immediate Action needed.</p>  
+     <label>Hashtag Used:</label>#<span class="tagUsed">ElectricityLacks</span>
+</div>
+    <div class="bstamp" style="
+     position:absolute;
+    background:black;
+    color:white;
+    border-top:solid 2px cyan;
+    width:100%;
+    height:30px;
+    bottom:0;">
+    <div class="PostResponse" style="float:left;">
+      &nbsp;&nbsp;&nbsp;<span class="likeNum">1</span>&nbsp;<button class="clickme" style="background-color:black;color:white;border:none;text-decoration:underline cyan;cursor:pointer;">Likes</button>&nbsp;&nbsp;&nbsp;
+      <span class="endorseNum">1</span> endorsements
+    </div>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <button id="myBtn" style="background-color: black;color:white;text-decoration: underline cyan;border-radius:10px;cursor:pointer;">Flag Status</button>
+    <div id="PostOwner"style="float:right;">Posted by Bruceshottaman Waynekataraman</div>
+    
+    </div>
+    <br>
+   </div>
+   <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from public <span style="font-size: 10px;">Comment from a common man/woman</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>We are sailing in the same boat.</h6>
+    <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+
+    <!-- </button> -->
+  </div>
+  </div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from the authority <span style="font-size: 10px;">Answer from the person who you demanded explanation.</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>Power will be restored within 1 hour. Will inform after restoring it. But please accept our PS request after we are done with it. </h6>
+    <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+      
+  </div>
+  <!-- </button> -->
+</div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>followup discussions <span style="font-size: 10px;">lingering questions and comments</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h4><b>Start a new discussion</b></h4>
+    <p></p>
+    <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>
+    <br><br>
+    <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br>
+     </button>
+    <br>
+    <br>
+  </div>
+  </div>
+  
+  </div>
+
+  <div id="Paris4" class="w3-container city" style="display:none;height:73%;position:fixed;overflow-y:scroll;">
+    <div class="title-holder" style="position:relative;">
+      
+      <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+        <h4>post@Kaila 533<span style="float:right;">51 of views</span></h4> 
+        </div>
+      
+    <h2 style="margin-left: 6px;">Why buses are too late?</h2>
+    <p></p>
+    <div class="title-content-holder">
+    <p style="margin-left: 6px;">I had an interview at 10am. The 51 bus should have come by 9. But it came by 9:45 and I missed my interview.</p>  
+     <label>Hashtag Used:</label>#<span class="tagUsed">LateBuses</span>
+</div>
+    <div class="bstamp" style="
+     position:absolute;
+    background:black;
+    color:white;
+    border-top:solid 2px cyan;
+    width:100%;
+    height:30px;
+    bottom:0;">
+    <div class="PostResponse" style="float:left;">
+      &nbsp;&nbsp;&nbsp;<span class="likeNum">1</span>&nbsp;<button class="clickme" style="background-color:black;color:white;border:none;text-decoration:underline cyan;cursor:pointer;">Likes</button>&nbsp;&nbsp;&nbsp;
+      <span class="endorseNum">0</span> endorsements
+    </div>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <button id="myBtn" style="background-color: black;color:white;text-decoration: underline cyan;border-radius:10px;cursor:pointer;">Flag Status</button>
+    <div id="PostOwner"style="float:right;">Posted by Kailash Ramesh</div>
+    
+    </div>
+    <br>
+   </div>
+   <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from public <span style="font-size: 10px;">Comment from a common man/woman</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>I had to go through similar circumstances. Don't know when everything will change.</h6>
+    <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+
+    <!-- </button> -->
+  </div>
+  </div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from the authority <span style="font-size: 10px;">Answer from the person who you demanded explanation.</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>There has been bus strikes as bus drivers are demanding for higher pay rates. We hope all issues settle down soon.</h6>
+    <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+      
+  </div>
+  <!-- </button> -->
+</div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>followup discussions <span style="font-size: 10px;">lingering questions and comments</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h4><b>Start a new discussion</b></h4>
+    <p></p>
+    <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>
+    <br><br>
+    <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br>
+     </button>
+    <br>
+    <br>
+  </div>
+  </div>
+  
+  </div>
+
+  <div id="Paris2" class="w3-container city" style="display:none;height:73%;position:fixed;overflow-y:scroll;">
+    <div class="title-holder" style="position:relative;">
+      
+      <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+        <h4>post@PostId <span style="float:right;">number of views</span></h4> 
+        </div>
+      
+    <h2 style="margin-left: 6px;">Trivial Question About PDA</h2>
+    <p></p>
+    <div class="title-content-holder">
+    <p style="margin-left: 6px;">Do PDAs stop after reaching the final state or can they die in a situation where they have reached the final state (and there are no transitions out of it) and input is still remaining?</p>  
+     <label>Hashtag Used:</label>#<span class="tagUsed">ElectricityLacks</span>
+</div>
+    <div class="bstamp" style="
+     position:absolute;
+    background:black;
+    color:white;
+    border-top:solid 2px cyan;
+    width:100%;
+    height:30px;
+    bottom:0;">
+    <div class="PostResponse" style="float:left;">
+      &nbsp;&nbsp;&nbsp;<span class="likeNum">1</span>&nbsp;<button class="clickme" style="background-color:black;color:white;border:none;text-decoration:underline cyan;cursor:pointer;">Likes</button>&nbsp;&nbsp;&nbsp;
+      <span class="endorseNum">0</span> endorsements
+    </div>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <button id="myBtn" style="background-color: black;color:white;text-decoration: underline cyan;border-radius:10px;cursor:pointer;">Flag Status</button>
+    <div id="PostOwner"style="float:right;">Updated [number] days ago by User1</div>
+    
+    </div>
+    <br>
+   </div>
+   <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from public <span style="font-size: 10px;">Comment from a common man/woman</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>I think I found the answer in the book that PDAs have a condition that "an accept state occurs at the input end."
+
+ 
+
+      So I think that the stack does not need to be empty if the PDA is in the final state and has reached the end of the input.</h6>
+    <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+
+    <!-- </button> -->
+  </div>
+  </div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from the authority <span style="font-size: 10px;">Answer from the person who you demanded explanation.</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>PDAs can accept once they've reached the end of the input, but not before.</h6>
+    <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+      
+  </div>
+  <!-- </button> -->
+</div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>followup discussions <span style="font-size: 10px;">lingering questions and comments</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h4><b>Start a new discussion</b></h4>
+    <p></p>
+    <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>
+    <br><br>
+    <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br>
+     </button>
+    <br>
+    <br>
+  </div>
+  </div>
+  
+  </div>
+
+  <div id="Paris2" class="w3-container city" style="display:none;height:73%;position:fixed;overflow-y:scroll;">
+    <div class="title-holder" style="position:relative;">
+      
+      <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+        <h4>post@PostId <span style="float:right;">number of views</span></h4> 
+        </div>
+      
+    <h2 style="margin-left: 6px;">Trivial Question About PDA</h2>
+    <p></p>
+    <div class="title-content-holder">
+    <p style="margin-left: 6px;">Do PDAs stop after reaching the final state or can they die in a situation where they have reached the final state (and there are no transitions out of it) and input is still remaining?</p>  
+     <label>Hashtag Used:</label>#<span class="tagUsed">ElectricityLacks</span>
+</div>
+    <div class="bstamp" style="
+     position:absolute;
+    background:black;
+    color:white;
+    border-top:solid 2px cyan;
+    width:100%;
+    height:30px;
+    bottom:0;">
+    <div class="PostResponse" style="float:left;">
+      &nbsp;&nbsp;&nbsp;<span class="likeNum">1</span>&nbsp;<button class="clickme" style="background-color:black;color:white;border:none;text-decoration:underline cyan;cursor:pointer;">Likes</button>&nbsp;&nbsp;&nbsp;
+      <span class="endorseNum">0</span> endorsements
+    </div>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <button id="myBtn" style="background-color: black;color:white;text-decoration: underline cyan;border-radius:10px;cursor:pointer;">Flag Status</button>
+    <div id="PostOwner"style="float:right;">Updated [number] days ago by User1</div>
+    
+    </div>
+    <br>
+   </div>
+   <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from public <span style="font-size: 10px;">Comment from a common man/woman</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>I think I found the answer in the book that PDAs have a condition that "an accept state occurs at the input end."
+
+ 
+
+      So I think that the stack does not need to be empty if the PDA is in the final state and has reached the end of the input.</h6>
+    <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+
+    <!-- </button> -->
+  </div>
+  </div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from the authority <span style="font-size: 10px;">Answer from the person who you demanded explanation.</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>PDAs can accept once they've reached the end of the input, but not before.</h6>
+    <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+      
+  </div>
+  <!-- </button> -->
+</div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>followup discussions <span style="font-size: 10px;">lingering questions and comments</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h4><b>Start a new discussion</b></h4>
+    <p></p>
+    <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>
+    <br><br>
+    <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br>
+     </button>
+    <br>
+    <br>
+  </div>
+  </div>
+  
+  </div>
+
+  <div id="Tokyo" class="w3-container city" style="display:none">
+    <div class="title-holder">
+      <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+        <h4>post@PostId <span style="float:right;">number of views</span></h4> 
+        </div>
+    <h2 style="margin-left: 6px;">Empty strings in Q4</h2>
+    <p></p>
+    <p style="margin-left: 6px;">In question 4, can a string in S contain wi=ϵ and have ## as a substring?</p>  
+    <!-- <div style="position: absolute;
+    bottom: 0;
+    right: 0;">Updated [number] days ago by User1
+    </div> -->
+   </div>
+   <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from public <span style="font-size: 10px;">Comment from a common man/woman</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>ϵ∈{0,1}⋆ so sure, as long as there still exists at least one wi≠wRi+1</h6>
+    <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span style="color: cyan; text-align:center;font-size: smaller;"><b>~The authority thinks that this comment is very meaningful~</b></span>
+      <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+
+    <!-- </button> -->
+  </div>
+  </div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>Comment from the authority <span style="font-size: 10px;">Answer from the person who you demanded explanation.</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h6>Yes. One additional note, ϵ=ϵR</h6>
+    <p></p>
+    <!-- <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>&nbsp;&nbsp; -->
+    <!-- <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br> -->
+      
+  </div>
+  <!-- </button> -->
+</div>
+  <div class="followup" style="border:solid 3px cyan;border-radius:10px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div id="f-header" style="border-bottom:solid 0.3px cyan;margin-left: 10px;margin-right: 10px;">
+    <h4>followup discussions <span style="font-size: 10px;">lingering questions and comments</span></h4> 
+    </div>
+    <div style="margin-left: 10px;margin-right: 10px;">
+    <h4><b>Start a new discussion</b></h4>
+    <p></p>
+    <input type="text" style="width:900px;height:30px;" placeholder="   Your discussion" name="uname" required>
+    <br><br>
+    <button id="pt" type="submit"><span style="text-align: center;">Post</span><br><br><br>
+     </button>
+    <br>
+    <br>
+  </div>
+  </div>
+  </div>
+ 
+  <!-- <div class="ToAdjustScrollBar" style="margin-bottom:0px;height:40%;margin-left:300px;margin-right:0px;">
+        Yo what is up?
+  </div> -->
+</div>
+<!-- <div class="ToAdjustScrollBar" style="margin-top:100px;margin-bottom:0px;height:400px;margin-left:300px;margin-right:0px;">
+  Yo what is up?
+</div> -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content"style="color:black;background-color:white;">
+      <div class="modal-header"style="color:black;background-color:white;border-bottom:solid 3px black;">
+        <span class="close"style="color:black;">&times;</span>
+        <h2>Flag Status</h2>
+      </div>
+      <div class="modal-body" style="color:black;">
+        <p><label>Flagged Office:</label><a href="#">Electricity Office of Constituency1</a></p>
+        <p><label>Flagged Authority:</label><a>Senior Authority(Designation)</a></p>
+        <p><label>Name of Person in Authority:</label><a href="#">Daniel Michael Kong</a></p>
+        <p></p>
+      </div>
+      <div class="modal-footer">
+        <h3>This problem is 211th unsolved problem in the above flagged office.</h3>
+      </div>
+    </div>
+  
+  </div>
+<script>
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-red", ""); 
+    
+}
+  document.getElementById(cityName).style.display = "block";
+  // alert(evt.currentTarget.className);
+  evt.currentTarget.className += " w3-red";
+  
+}
+</script>
+<script>
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong style='color:cyan;'>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*An array containing all the country names in the world:*/
+var countries = ["Aadhitya Arunachalam","Arun Pandiyan","Arun Priya","Aaron","Debankita Basu","Debasmitha Basu","Kailash Ramesh","Kailasa","Bruce Wayne","Bruceshottaman Waynekataraman","P Purushottaman","Saatwik Sunny Das","Arunima Das","Sai Sudheep","Gokulapriyan","Gopi","Ramasamy","Ramakrishnan"];
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("myInput"), countries);
+</script>
+<script>
+    function filterPosts() {
+        var checkBox1=document.getElementById("matchPostTitle");
+        var checkBox2=document.getElementById("matchHashtag");
+        
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("postFilter");
+        filter = input.value.toUpperCase();
+        
+        ul = document.getElementById("postHolder");
+       
+        li = ul.getElementsByTagName("button");
+    
+       if(checkBox1.checked||checkBox2.checked){
+        // yo=document.get
+        for (i = 0; i < li.length; i++) {
+            // alert(i);
+            a = li[i];
+            
+            b = li[i].getElementsByTagName("input");
+            // // alert(a[0].value);
+            content=document.getElementById(b[0].value);
+
+            header=content.getElementsByClassName("title-holder");
+            
+            tcontent=header[0].getElementsByClassName("title-content-holder");
+            
+            // hashtagL=tcontent[0].getElementsByClassName("HashtagLabel");
+            // alert(hashtagL[0]);
+            hashTag=tcontent[0].getElementsByClassName("tagUsed");
+            // alert(hashTag[0].innerText);
+            txtValue1 = a.textContent || a.innerText;
+            txtValue2=hashTag[0].textContent||hashTag[0].innerText;
+            
+            if(checkBox1.checked){
+            if (txtValue1.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "block";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+        else  if(checkBox2.checked){
+            if (txtValue2.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "block";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+        else  if(checkBox1.checked && checkBox2.checked){
+            if ((txtValue2.toUpperCase().indexOf(filter) > -1)||(txtValue1.toUpperCase().indexOf(filter) > -1)) {
+                li[i].style.display = "block";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+        }
+        
+    } 
+    }
+    function filterPosts2() {
+        var checkBox=document.getElementById("endorseCheck");
+        if(checkBox.checked==true){
+            // alert("hi");
+        var input, filter, ul, li, a, i, txtValue;
+        // input = document.getElementById("postFilter");
+        // filter = input.value.toUpperCase();
+        
+        ul = document.getElementById("postHolder");
+       
+        li = ul.getElementsByTagName("button");
+        // alert(filter);
+       
+        // yo=document.get
+        // alert(li.length);
+        for (i = 0; i < li.length; i++) {
+            // alert(i);
+            a = li[i].getElementsByTagName("input");
+            // // alert(a[0].value);
+            content=document.getElementById(a[0].value);
+            
+            header=content.getElementsByClassName("title-holder");
+            // // alert(header);
+            bstamp=header[0].getElementsByClassName("bstamp");
+            
+            PostResponse=bstamp[0].getElementsByClassName("PostResponse");
+            likeNum=PostResponse[0].getElementsByClassName("endorseNum");
+            txtValue=likeNum[0].innerText;
+            // // txtValue = PostResponse[0].textContent || PostResponse.innerText;
+            // // alert(content);
+            if (txtValue>0) {
+                li[i].style.display = "block";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+    else{
+        var input, filter, ul, li, a, i, txtValue;
+        // input = document.getElementById("postFilter");
+        // filter = input.value.toUpperCase();
+        
+        ul = document.getElementById("postHolder");
+       
+        li = ul.getElementsByTagName("button");
+        // alert(filter);
+       
+        // yo=document.get
+        // alert(li.length);
+        for (i = 0; i < li.length; i++) {
+            li[i].style.display = "block";
+        } 
+    }
+    }
+    
+    </script>
+</body>
+<script>
+    function myFunction() {
+      var x = document.getElementById("filter");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+    </script>
+    <script>
+        var x, i, j, selElmnt, a, b, c;
+        /*look for any elements with the class "custom-select":*/
+        x = document.getElementsByClassName("custom-select");
+        for (i = 0; i < x.length; i++) {
+          selElmnt = x[i].getElementsByTagName("select")[0];
+          /*for each element, create a new DIV that will act as the selected item:*/
+          a = document.createElement("DIV");
+          a.setAttribute("class", "select-selected");
+          a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+          x[i].appendChild(a);
+          /*for each element, create a new DIV that will contain the option list:*/
+          b = document.createElement("DIV");
+          b.setAttribute("class", "select-items select-hide");
+          for (j = 1; j < selElmnt.length; j++) {
+            /*for each option in the original select element,
+            create a new DIV that will act as an option item:*/
+            c = document.createElement("DIV");
+            c.innerHTML = selElmnt.options[j].innerHTML;
+            c.addEventListener("click", function(e) {
+                /*when an item is clicked, update the original select box,
+                and the selected item:*/
+                var y, i, k, s, h;
+                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                h = this.parentNode.previousSibling;
+                for (i = 0; i < s.length; i++) {
+                  if (s.options[i].innerHTML == this.innerHTML) {
+                    s.selectedIndex = i;
+                    h.innerHTML = this.innerHTML;
+                    y = this.parentNode.getElementsByClassName("same-as-selected");
+                    for (k = 0; k < y.length; k++) {
+                      y[k].removeAttribute("class");
+                    }
+                    this.setAttribute("class", "same-as-selected");
+                    break;
+                  }
+                }
+                h.click();
+            });
+            b.appendChild(c);
+          }
+          x[i].appendChild(b);
+          a.addEventListener("click", function(e) {
+              /*when the select box is clicked, close any other select boxes,
+              and open/close the current select box:*/
+              e.stopPropagation();
+              closeAllSelect(this);
+              this.nextSibling.classList.toggle("select-hide");
+              this.classList.toggle("select-arrow-active");
+            });
+        }
+        function closeAllSelect(elmnt) {
+          /*a function that will close all select boxes in the document,
+          except the current select box:*/
+          var x, y, i, arrNo = [];
+          x = document.getElementsByClassName("select-items");
+          y = document.getElementsByClassName("select-selected");
+          for (i = 0; i < y.length; i++) {
+            if (elmnt == y[i]) {
+              arrNo.push(i)
+            } else {
+              y[i].classList.remove("select-arrow-active");
+            }
+          }
+          for (i = 0; i < x.length; i++) {
+            if (arrNo.indexOf(i)) {
+              x[i].classList.add("select-hide");
+            }
+          }
+        }
+        /*if the user clicks anywhere outside the select box,
+        then close all select boxes:*/
+        document.addEventListener("click", closeAllSelect);
+        </script>
+        <script>
+            var button = document.getElementsByClassName("clickme"),
+           
+  count = 0;
+  button[0].onclick = function() {
+    // alert(button.length);
+  count += 1;
+
+//   alert(count);
+  if(count%2!=0){
+    
+    document.getElementsByClassName("likeNum")[0].innerText++;
+  }
+  else if(count%2==0){
+    // $('#likeNum').html(parseInt($('#likeNum').html(), 10)-1);
+    document.getElementsByClassName("likeNum")[0].innerText--;
+  }
+//   button.innerHTML = "Click me: " + count;
+};
+button[1].onclick = function() {
+    // alert(button.length);
+  count += 1;
+
+//   alert(count);
+  if(count%2!=0){
+    
+    document.getElementsByClassName("likeNum")[1].innerText++;
+  }
+  else if(count%2==0){
+    // $('#likeNum').html(parseInt($('#likeNum').html(), 10)-1);
+    document.getElementsByClassName("likeNum")[1].innerText--;
+  }
+//   button.innerHTML = "Click me: " + count;
+};
+button[2].onclick = function() {
+    // alert(button.length);
+  count += 1;
+
+//   alert(count);
+  if(count%2!=0){
+    
+    document.getElementsByClassName("likeNum")[2].innerText++;
+  }
+  else if(count%2==0){
+    // $('#likeNum').html(parseInt($('#likeNum').html(), 10)-1);
+    document.getElementsByClassName("likeNum")[2].innerText--;
+  }
+//   button.innerHTML = "Click me: " + count;
+};
+button[3].onclick = function() {
+    // alert(button.length);
+  count += 1;
+
+//   alert(count);
+  if(count%2!=0){
+    
+    document.getElementsByClassName("likeNum")[3].innerText++;
+  }
+  else if(count%2==0){
+    // $('#likeNum').html(parseInt($('#likeNum').html(), 10)-1);
+    document.getElementsByClassName("likeNum")[3].innerText--;
+  }
+//   button.innerHTML = "Click me: " + count;
+};
+button[4].onclick = function() {
+    // alert(button.length);
+  count += 1;
+
+//   alert(count);
+  if(count%2!=0){
+    
+    document.getElementsByClassName("likeNum")[4].innerText++;
+  }
+  else if(count%2==0){
+    // $('#likeNum').html(parseInt($('#likeNum').html(), 10)-1);
+    document.getElementsByClassName("likeNum")[4].innerText--;
+  }
+//   button.innerHTML = "Click me: " + count;
+};
+button[5].onclick = function() {
+    // alert(button.length);
+  count += 1;
+
+//   alert(count);
+  if(count%2!=0){
+    
+    document.getElementsByClassName("likeNum")[5].innerText++;
+  }
+  else if(count%2==0){
+    // $('#likeNum').html(parseInt($('#likeNum').html(), 10)-1);
+    document.getElementsByClassName("likeNum")[5].innerText--;
+  }
+//   button.innerHTML = "Click me: " + count;
+};
+
+        </script>
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+            
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+            
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            
+            // When the user clicks the button, open the modal 
+            btn.onclick = function() {
+              modal.style.display = "block";
+            }
+            
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+              modal.style.display = "none";
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+            </script>
+</html>

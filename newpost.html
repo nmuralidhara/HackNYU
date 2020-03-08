@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="C:\xampp\htdocs\w3-1.css">
+<style>
+  body {
+  /* overflow: hidden; */
+  height:100%;
+}
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+#myInput {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {outline: 3px solid #ddd;}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+html{
+  /* overflow:hidden; */
+}
+  .siric{
+    color:white!important;
+    background-color:black!important;
+    border-right: solid 3px cyan!important;
+  }
+  #hey{
+    color:white;
+    background-color:black;
+    border-bottom:solid 0.3px cyan;
+  }
+  #siri:hover{
+    color:white;
+    background-color:black;
+    border-right: solid 3px cyan;
+  }
+  .title-holder{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color:white;
+    background-color:black;
+    border: solid 3px cyan;
+    border-radius: 10px;
+    height:300px;
+  }
+  .title-holder:hover{
+    color:black;
+    background-color:darkgrey;
+  }
+  .followup:hover{
+    color:black;
+    background-color:darkgray;
+  }
+  input[type="text"]{
+  background-color: black;
+  border:solid 3px cyan;
+  border-radius:10px;
+}
+input[type="text"]:hover{
+  background-color:white;
+  color:black;
+  border:solid 3px cyan;
+  border-radius:10px;
+}
+#pt{
+    background-color: black;
+    color:white;
+    border: solid 2px cyan;
+    border-radius:10px;
+    width:90px;
+    height:30px;
+    font-size:medium;
+}
+#pt:hover{
+  background-color:white;
+  color:black;
+}
+.w3-red:hover{
+  background-color:darkgray;
+  color:black;
+}
+#navbar {
+  overflow: visible;
+  background-color:black;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color:black;
+  color:white;
+  border: solid 6px cyan;
+  border-top:none;
+  border-left:none;
+  border-right:none;
+}
+
+#navbar a.active {
+  color: white;
+  background-color: black;
+  border: solid 6px cyan;
+  border-top:none;
+  border-left:none;
+  border-right:none;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+} */
+.logo{
+float:left;
+border:none;
+}
+.topnav-right{
+    float:right;
+}
+#navbar input[type=text]{
+    padding:6px;
+    margin-top: 8px;
+    border:solid 3px cyan;
+    font-size: 17px;
+    width:350px;
+    height:46px;
+}
+#navbar input[type=text]:active{
+    padding:6px;
+    margin-top: 8px;
+    border:solid 3px cyan;
+    border-radius:10px;
+    font-size: 17px;
+    width:350px;
+    height:46px;
+}
+#navbar input[type=text]:hover{
+    padding:6px;
+    margin-top: 8px;
+    border:solid 3px cyan;
+    border-radius:10px;
+    font-size: 17px;
+    width:350px;
+    height:46px;
+}
+#navbar .search{
+    margin-left:40px;
+    float:left;
+}
+.custom-select {
+  position: absolute;
+  margin-top: 0px;
+  font-family: Arial;
+  
+  /* margin-left:130px; */
+}
+.custom-select:hover {
+  border-bottom:solid 6px cyan;
+  /* margin-left:130px; */
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color:black;
+  color:white;
+  border:solid 2px cyan;
+  /* width:100px; */
+  margin-top: 0px;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+  /* width:160px; */
+  
+}
+
+/*style items (options):*/
+.select-items {
+  position: relative;
+  background-color:black;
+  color:white;
+  top: 100%;
+  margin-top: 0px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  /* width:200px; */
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  /* background-color:white;
+  color:black; */
+  border:solid 2px cyan;
+  width: 160px;
+}
+.calendar{
+  background-color:darkgray;
+  height:30px;
+}
+#mainb{
+  margin-left:0px;
+  /* float:left; */
+  /* border:solid 6px cyan; */
+  background-color: black;
+  border:none;
+  width:10px;
+  height:30px;
+  border-radius:0px;
+  background-color: black;
+    color:white;
+    border: solid 2px cyan;
+    border-radius:10px;
+    width:160px;
+    height:160px;
+    font-size:20px;
+}
+#mainb{
+  margin-left:0px;
+  /* float:left; */
+  /* border:solid 6px cyan; */
+  background-color: black;
+  border:none;
+  width:10px;
+  height:30px;
+  border-radius:0px;
+  background-color: black;
+    color:white;
+    border: solid 2px cyan;
+    border-radius:10px;
+    width:160px;
+    height:160px;
+    font-size:20px;
+}
+#mainb.active{
+  margin-left:0px;
+  /* float:left; */
+  /* border:solid 6px white; */
+  border-bottom:solid 6px cyan;
+  background-color:black;
+  color:white;
+  font-weight: bolder;
+  width:300px;
+  height:80px;
+  border-radius:0px;
+  /* box-shadow: 0 5px white;
+  transform: translateY(3px); */
+}
+#mainb2{
+  margin-left:0px;
+  /* float:left; */
+  
+  background-color: black;
+  width:240px;
+  height:80px;
+  border:solid 3px cyan; 
+  border-radius:0px;
+}
+#mainb2.active{
+  margin-left:0px;
+  /* float:left; */
+  /* border:solid 6px white; */
+  /* border-bottom:solid 6px cyan; */
+  background-color:cyan;
+  color:black;
+  font-weight: bolder;
+  width:240px;
+  height:80px;
+  border-radius:0px;
+  /* box-shadow: 0 5px white;
+  transform: translateY(3px); */
+}
+.num {
+  position: relative;
+  right: 16px;
+  top: 0px;
+  margin-top:0px;
+  margin-bottom:10px;
+  bottom: 10px;
+  color: black;
+  width:30px;
+  border:none;
+  background-color:gray;
+
+  /* border-radius:50%; */
+  /* padding-top: 0px; */
+}
+div.scrollmenu {
+  background-color:black;
+  overflow: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: white;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  text-decoration: underline;
+  text-decoration-color: cyan;
+}
+div.scrollmenu::-webkit-scrollbar {
+  width: 6px;
+  height:1px;
+}
+
+div.scrollmenu::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+div.scrollmenu::-webkit-scrollbar-thumb {
+  background-color: white ;
+  border-radius: 6px;
+  border: 3px solid cyan;
+}
+#postHolder{
+  overflow: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: white;
+}
+#postHolder::-webkit-scrollbar {
+  width: 6px;
+  height:1px;
+}
+
+#postHolder::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+#postHolder::-webkit-scrollbar-thumb {
+  background-color: white ;
+  border-radius: 6px;
+  border: 3px solid cyan;
+}
+#hashtag{
+  text-decoration: none;
+}
+#hashtag:hover{
+  text-decoration: underline;
+}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 17px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: cyan;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+#Paris.bstamp{
+  position: absolute;
+  width: 50%;
+  bottom: 10px;
+  border: 3px solid #8AC007;
+}
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+i {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.righttos {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.container2 {
+  /* display: block; */
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container2 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container2:hover input ~ .checkmark2 {
+  background-color:cyan;
+}
+
+/* When the radio button is checked, add a blue background */
+.container2 input:checked ~ .checkmark2 {
+  background-color:cyan;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark2:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container2 input:checked ~ .checkmark2:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container2 .checkmark2:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+/* .custom-select2 {
+  position: relative;
+  font-family: Arial;
+  border:solid 2px cyan;
+  margin-left:130px;
+}
+
+.custom-select2 select {
+  display: none; /*hide original SELECT element:*/
+/* }
+.custom-select2.select-selected {
+  background-color:black;
+  color:white;
+  border:solid 2px cyan;
+  width:100px;
+}
+
+/*style the arrow inside the select element:*/
+/* .custom-select2.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+} */
+
+/*point the arrow upwards when the select box is open (active):*/
+/* .custom-select2.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+} */ 
+
+/*style the items (options), including the selected item:*/
+/* .custom-select2.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+} */
+
+/*style items (options):*/
+/* .custom-select2.select-items {
+  position: absolute;
+  background-color:black;
+  color:white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  /* width:100px; */
+/* }  */
+
+/*hide the items when the select box is closed:*/
+/* .custom-select2.select-hide {
+  display: none;
+} */
+
+/* .custom-select2.select-items div:hover, .same-as-selected {
+  /* background-color:white;
+  color:black; */
+  /* border:solid 2px cyan; */
+/* } */ 
+
+/*  */
+</style>
+<body bgcolor="black" style="color:white;">
+  <div id="navbar">
+    <div class="logo">
+       <a href="hi.html">DemoQuestion</a>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style="padding-top:9px;border:none;"><input type="text" style="width:300px;height:30px;" placeholder="          Search User " name="uname" required></a>
+       <a style="border:none;font-size:17px;padding-top:9px;"> <div class="custom-select" style="width:160px;float:right;margin-top:0px;">
+        <select>
+          <option value="0">Constituency</option>
+          <option value="1">Constituency1</option>
+          <option value="2">Constituency2</option>
+          <option value="3">Constituency3</option>
+          <option value="4">Constituency4</option>
+          <option value="5">Constituency5</option>
+          <option value="6">Constituency6</option>
+          <option value="7">Constituency7</option>
+          <option value="8">Constituency8</option>
+          <option value="9">Constituency9</option>
+          <option value="10">Constituency10</option>
+        </select>
+        
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </a>
+   
+    <a id="hi" href="javascript:void(0)">Posts</a>
+    <a id="hi" href="javascript:void(0)">Gov Plans</a>
+        </div>
+        <!-- <div class="search">
+        <input type="text" name="search_text" id="search_text" id="tu" placeholder="Search"  class="form-control" />
+    </div> -->
+    <div class="topnav-right">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a id="hi" style="border:none;margin-right:100px;padding-top:9px;font-size:17px;">
+      <div class="custom-select"style="width:100px;float:left;margin-top:0px;">
+        <select >
+          <option value="0" style="float:left;">Profile</option>
+          <option value="1">5 replies</option>
+          <option value="2">35 PS requests</option>
+          <option value="3">View Profile</option>
+          <option value="4">Settings</option>
+          <option value="5">Logout</option>
+          
+        </select>
+        
+      </div>
+    </a>
+       
+          
+    <!-- <a id="hi" class="notif" href="javascript:void(0)">Profile &nbsp;&nbsp;<sup><span class="num">2</span></sup></a> -->
+   
+    <!-- <a id="hi" href="javascript:void(0)">Log Out</a> -->
+    
+</div> 
+  </div>
+  <br>
+  <br>
+  <br>
+
+ <div style="margin-left:250px;width:900px;height:1000px;border:solid 3px cyan;border-radius: 10px;">
+    <div style="border-bottom:solid 0.3px cyan; margin-left:10px;margin-right:10px;">
+        <h3 style="text-align: center;">Create New Post</h3>
+    </div>
+    <form name="frmRegistration" method="post" action="">
+    <h4 style>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title: &nbsp;&nbsp;&nbsp;<input type="text"placeholder="         Enter Title" style="width: 400px;"></h4>
+    <h4 style>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea id="description" rows="10" cols="60" placeholder="Enter description"style="background-color: black;color:white;border:solid 3px cyan;border-radius:10px;"></textarea></h4>
+    <h4 style>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Post as: &nbsp;&nbsp;&nbsp; 
+        <label class="container2">Public Problem
+        <input type="radio" name="group1">
+        <span class="checkmark2"></span>
+      </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <label class="container2">Private Petition
+        <input type="radio" name="group1">
+        <span class="checkmark2"></span>
+      </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+      <h4 style>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Problem Type:
+<div class="custom-select" style="padding-top:0px;margin-left:270px;border:solid 2px cyan;">
+            <select id="mfi_4_a_i" onchange='changetextbox(this);'>
+              <option value="0">Select Type:</option>
+              <option value="1">Audi</option>
+              <option value="2">BMW</option>
+              <option value="3">Citroen</option>
+              <option value="4">Ford</option>
+              <option value="5">Honda</option>
+              <option value="6">Jaguar</option>
+              <option value="7">Land Rover</option>
+              <option value="8">Mercedes</option>
+              <option value="9">Mini</option>
+              <option value="10">Nissan</option>
+              <option value="11">Toyota</option>
+              <option value="12">Volvo</option>
+            </select>
+          </div>
+          
+<!-- <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+    <div id="myDropdown" class="dropdown-content">
+      <input type="text" placeholder="Search.." id="myInput" style="color:white;" onkeyup="filterFunction()">
+      <a href="#about">About</a>
+      <a href="#base">Base</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+      <a href="#custom">Custom</a>
+      <a href="#support">Support</a>
+      <a href="#tools">Tools</a>
+    </div>
+  </div> -->
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4> 
+           <br>
+           <br>
+
+           <h4 style>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Department:
+            <div class="custom-select" style="padding-top:0px;margin-top:0px;margin-left:270px;border:solid 2px cyan;">
+                        <select>
+                          <option value="0">Select Department:&nbsp;&nbsp;&nbsp;</option>
+                          <option value="1">Audi</option>
+                          <option value="2">BMW</option>
+                          <option value="3">Citroen</option>
+                          <option value="4">Ford</option>
+                          <option value="5">Honda</option>
+                          <option value="6">Jaguar</option>
+                          <option value="7">Land Rover</option>
+                          <option value="8">Mercedes</option>
+                          <option value="9">Mini</option>
+                          <option value="10">Nissan</option>
+                          <option value="11">Toyota</option>
+                          <option value="12">Volvo</option>
+                        </select>
+                      </div>
+                      
+            <!-- <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                <div id="myDropdown" class="dropdown-content">
+                  <input type="text" placeholder="Search.." id="myInput" style="color:white;" onkeyup="filterFunction()">
+                  <a href="#about">About</a>
+                  <a href="#base">Base</a>
+                  <a href="#blog">Blog</a>
+                  <a href="#contact">Contact</a>
+                  <a href="#custom">Custom</a>
+                  <a href="#support">Support</a>
+                  <a href="#tools">Tools</a>
+                </div>
+              </div> -->
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4> 
+                       <br>
+                       <br>
+                       <br>
+
+                       <h4 style>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HashTag: &nbsp;&nbsp;&nbsp;<input type="text" id="sdd" placeholder="         Enter Tag" style="width: 400px;"></h4>
+                      <input type="submit" name="create-post" value=" Create Post" style="float:right;margin-top:60px;margin-right:30px;bottom:10px;border:solid 3px cyan;border-radius:10px;background-color: black;color:white;z-index:1;"> 
+                    </form>  
+                    </div>
+  
+ <script>
+  function changetextbox(input)
+  {
+    alert("hi");
+      if (input.value == "1") {
+        
+          document.getElementById("sdd").disable='true';
+      } else {
+          document.getElementById("sdd").disable='false';
+      }
+  }
+  </script>
+
+</body>
+<script>
+  var x, i, j, selElmnt, a, b, c;
+  /*look for any elements with the class "custom-select":*/
+  x = document.getElementsByClassName("custom-select");
+  for (i = 0; i < x.length; i++) {
+    selElmnt = x[i].getElementsByTagName("select")[0];
+    /*for each element, create a new DIV that will act as the selected item:*/
+    a = document.createElement("DIV");
+    a.setAttribute("class", "select-selected");
+    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+    x[i].appendChild(a);
+    /*for each element, create a new DIV that will contain the option list:*/
+    b = document.createElement("DIV");
+    b.setAttribute("class", "select-items select-hide");
+    for (j = 1; j < selElmnt.length; j++) {
+      /*for each option in the original select element,
+      create a new DIV that will act as an option item:*/
+      c = document.createElement("DIV");
+      c.innerHTML = selElmnt.options[j].innerHTML;
+      c.addEventListener("click", function(e) {
+          /*when an item is clicked, update the original select box,
+          and the selected item:*/
+          var y, i, k, s, h;
+          s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+          h = this.parentNode.previousSibling;
+          for (i = 0; i < s.length; i++) {
+            if (s.options[i].innerHTML == this.innerHTML) {
+              s.selectedIndex = i;
+              h.innerHTML = this.innerHTML;
+              y = this.parentNode.getElementsByClassName("same-as-selected");
+              for (k = 0; k < y.length; k++) {
+                y[k].removeAttribute("class");
+              }
+              this.setAttribute("class", "same-as-selected");
+              break;
+            }
+          }
+          h.click();
+      });
+      b.appendChild(c);
+    }
+    x[i].appendChild(b);
+    a.addEventListener("click", function(e) {
+        /*when the select box is clicked, close any other select boxes,
+        and open/close the current select box:*/
+        e.stopPropagation();
+        closeAllSelect(this);
+        this.nextSibling.classList.toggle("select-hide");
+        this.classList.toggle("select-arrow-active");
+      });
+  }
+  function closeAllSelect(elmnt) {
+    /*a function that will close all select boxes in the document,
+    except the current select box:*/
+    var x, y, i, arrNo = [];
+    x = document.getElementsByClassName("select-items");
+    y = document.getElementsByClassName("select-selected");
+    for (i = 0; i < y.length; i++) {
+      if (elmnt == y[i]) {
+        arrNo.push(i)
+      } else {
+        y[i].classList.remove("select-arrow-active");
+      }
+    }
+    for (i = 0; i < x.length; i++) {
+      if (arrNo.indexOf(i)) {
+        x[i].classList.add("select-hide");
+      }
+    }
+  }
+  /*if the user clicks anywhere outside the select box,
+  then close all select boxes:*/
+  document.addEventListener("click", closeAllSelect);
+  </script>
+  <script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    function filterFunction() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      div = document.getElementById("myDropdown");
+      a = div.getElementsByTagName("a");
+      for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          a[i].style.display = "";
+        } else {
+          a[i].style.display = "none";
+        }
+      }
+    }
+    </script>
+    <!-- <script>
+      function myFunction() {
+        var x = document.getElementById("filter");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+      </script> -->
+
+</html>
